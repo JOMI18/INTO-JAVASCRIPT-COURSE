@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array Methods</title>
+  </head>
+  <body>
+    <h1>Array Methods</h1>
+    <ul>
+      <li>splice</li>
+      <li>slice</li>
+      <li>join</li>
+      <li>pop</li>
+      <li>shift</li>
+      <li>push</li>
+      <li>concat</li>
+      <li>unshift</li>
+    </ul>
+  </body>
+
+  <script>
+    let array = ["Car", "Mouse", "Milk", "Cheese", "Fred"];
+    console.log(array.splice(1, 2, "replace")); //(starts, length to remove )
+    console.log(array.slice(1, 3)); // (starts from index 0, starts from index one)
+    console.log(array.shift()); // removes from the front
+    console.log(array.unshift("goat")); // adds from the fron
+    console.log(array.pop()); // removes from the back
+    console.log(array.concat("jomi")); // merge elements or arrays
+    console.log(array.join("*")); // joins with symbols
+    console.log(array.push("ass")); // adds from the back
+  </script>
+</html>

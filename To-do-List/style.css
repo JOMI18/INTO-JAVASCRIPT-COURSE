@@ -1,0 +1,78 @@
+@font-face {
+  font-family: Dosis;
+  src: url("./fonts/Dosis/Dosis-VariableFont_wght.ttf");
+}
+
+* {
+  font-family: Dosis;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  min-height: 100vh;
+  font-size: 62.5%;
+}
+body {
+  min-height: 100vh !important;
+  /* background-color: rgba(255, 15, 15, 0.437) !important; */
+}
+.input-box {
+  display: flex;
+  justify-content: space-around;
+  align-items: center !important;
+  margin-bottom: 2.4rem;
+  /* background-color: aqua; */
+}
+
+input {
+  width: 50%;
+  padding: 1.2rem;
+  border-radius: 5px;
+  font-size: 1.8rem !important;
+}
+.input-box button {
+  padding: 1rem 2.4rem;
+  font-size: 1.6rem;
+}
+.container {
+  border: 1px solid black;
+  border-radius: 9px;
+  margin: 10rem auto;
+  width: 130rem;
+  padding: 4rem;
+}
+
+table {
+  font-size: 1.8rem !important;
+}
+#tableBody tr {
+  color: #f0f8ff;
+  font-size: 1.8rem !important;
+}
+
+.mode--colors {
+  background-color: black;
+}
+.hOne {
+  color: #2283d8;
+}
+.bgColor {
+  border: 1px solid #2283d8;
+}
+
+.d-mode {
+  top: 15%;
+  left: 10rem;
+  border: 2px solid #2283d8;
+  width: 9rem;
+  padding: 1rem 1.5rem;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  background-color: transparent;
+  font-size: 2rem;
+}
+.d-mode:hover {
+  background-color: aliceblue;
+  color: black !important;
+}

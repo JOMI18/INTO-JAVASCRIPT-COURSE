@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input
+      type="number"
+      placeholder="Enter number to format"
+      oninput="format()"
+      id="currencyInp"
+    />
+
+    <h1 id="h1"></h1>
+  </body>
+  <script>
+    // function format(params) {
+    //   let param = currencyInp.value;
+    //   h1.innerHTML += param;
+    //   console.log(param);
+    // }
+
+    // let format = (param) => {
+    let format = () => {
+      let param = currencyInp.value;
+      let str = String(param);
+      let ans;
+      let ar = str.split("");
+      console.log(ar);
+      if (param.length < 4) {
+        console.log(param);
+        h1.innerHTML = param;
+        return param;
+      } else {
+        let decimal;
+        if (String(param).includes(".")) {
+          decimal = ar.splice(str.indexOf("."));
+          console.log(decimal);
+        }
+        let front = ar.length % 3;
+        console.log(front);
+        let length = parseInt(ar.length / 3);
+        console.log(length);
+
+        let initial = ar.splice(0, front).join("");
+        console.log(initial);
+        result = initial;
+        for (let i = 0; i < length; i++) {
+          result += "," + ar.splice(0, 3).join("");
+          h1.innerHTML = result;
+        }
+        console.log(result + decimal.join(""));
+        h1.innerHTML = result + decimal.join("");
+      }
+    };
+    // format(1000000);
+  </script>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Formatter</h1>
+    <input
+      type="number"
+      name=""
+      id="Currency"
+      placeholder="Input number "
+      oninput="Format()"
+    />
+    <h5 id="view"></h5>
+  </body>
+</html>
+<script>
+  //   let view = view.value;
+
+  function Format() {
+    let currency = Currency.value;
+    console.log(currency);
+    if (currency.includes(".")) {
+      //   savee = currency;
+      //   console.log(savee);
+      decimalSplit = currency.split(".");
+      str = `${decimalSplit[0]}`;
+      console.log(str);
+    } else {
+      str = currency;
+    }
+  }
+</script>
