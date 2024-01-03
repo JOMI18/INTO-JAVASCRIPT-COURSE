@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .grid-container{
+            display: grid;
+            /* grid-template-columns: 200px 350px auto 350px; */
+            grid-template-columns: auto auto  auto ;
+            background-color: aqua;
+            padding: 10px;
+            grid-gap:  8px;
+            /* justify-content: space-around; */
+            align-content: end;
+        }
+        .grid-container > div{
+            border: 1px solid black;
+            background-color: azure;
+            text-align: center;
+            padding: 10px;
+        }
+        .grid-item2{
+            /* grid-row-start: 1; */
+            border: 1px solid black;
+            background-color: azure;
+            text-align: center;
+            padding: 10px;
+        }
+        .grid-item1{
+            border: 1px solid black;
+            background-color: azure;
+            text-align: center;
+            padding: 10px;
+            grid-column: 1/ span 2;
+        }
+        .grid-item6{
+            grid-column: 1/span 2;
+        }
+    </style>
+</head>
+<body>
+    <div class="grid-container">
+        <div class="grid-item1">1</div>
+        <div class="grid-item2">2</div>
+        <div class="grid-item">3</div>
+        <div class="grid-item">4</div>
+        <div class="grid-item">5</div>
+        <div class="grid-item6">6</div>
+        <div class="grid-item">7</div>
+        <div class="grid-item">8</div>
+    </div>
+    <p oncopy="selected();">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloribus alias architecto eveniet! Laudantium quod quas aliquam qui nesciunt quaerat distinctio hic incidunt. Beatae possimus iure laudantium consequatur dolorem ad sunt.
+    </p>
+</body>
+<script>
+    function selected(){
+        if(window.getSelection){
+            console.log(window.getSelection());
+        } else if (document.getSelection){
+            console.log(document.getSelection());
+        } else if (document.selection){
+            console.log(document.selection.createRange().text);
+        } else return
+        
+    }
+</script>
+</html>

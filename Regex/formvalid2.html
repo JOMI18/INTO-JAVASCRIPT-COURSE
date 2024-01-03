@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form</title>
+    <link rel="stylesheet" href="./Bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <style>
+        p{
+            margin: 0 !important;
+            font-size: smaller;
+        }
+        @font-face {
+            font-family: op;
+            src: url(./fonts/Dosis/static/Dosis-Medium.ttf);
+        }
+        *{font-family: op;}
+    </style>
+</head>
+<body> 
+    <center>
+        <form action="#" class="w-25">
+            <h1 class="mt-3 text-center">SIGN UP</h1>
+            <span>Username:</span>
+            <input type="text" placeholder="username" id="nameInp" class="form-control inpss">
+            <p id="namep" class="text-danger mb-3"></p>
+            <span>Email:</span>
+            <input type="email" placeholder="email address" id="emailInp"class="form-control inpss">
+            <p id="emailp" class="text-danger mb-3"></p>
+            <span>Phone number:</span>
+            <input type="text" placeholder="phone Number +234xxxxxxxxxx" id="numbInp"class="form-control inpss">
+            <p id="numbp" class="text-danger mb-3 "></p>
+            <span>Password:</span>
+            <div class="d-flex align-items-center justify-content-around"><input type="password" placeholder="password" id="passwordInp"class="form-control inpss"><i class="fa fa-eye" onclick="viewPassword('pass')"></i></div>
+            <p id="pwordp" class="text-danger mb-3"></p>
+            <span>Confirm password:</span>
+            <div class="d-flex align-items-center justify-content-around"><input type="password" placeholder="confirm password" id="confirmPass"class="form-control inpss"><i class="fa fa-eye" onclick="viewPassword('confirmPass')"></i></div>
+            <p id="confirmp" class="text-danger mb-3"></p>
+            <input type="number" readonly class="form-control bg-primary text-white mt-2"  id="captchaCode">
+            <input type="text" class="form-control" id="captchaInp" placeholder="Enter captcha">
+            <p id="captchap" class="text-danger"></p>
+            <button class="btn btn-primary mt-2"  onclick="check()">Submit</button>
+        </form>
+    </center>   
+</body>
+<script>
+    let nameregex = /^[a-zA-Z]{6,}$/
+    let emailregex =  /^[a-zA-Z0-9#$%^&.*]+@[a-z]+([.][a-z]{2,3})$/ 
+    let numbregex = /^\+[2][3][4]\d{10}/
+    let passregex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[@# \+\*])(?=.{8,})/
+    let code = (Math.floor(100000+Math.random()*900000));
+    function viewPassword(param){
+        if(param == 'pass'){
+           document.getElementById('passwordInp').type== 'password'?document.getElementById('passwordInp').type ='text':document.getElementById('passwordInp').type ='password' 
+        } else if(param=='confirmPass'){
+            document.getElementById('confirmPass').type== 'password'?confirmPass.type ='text':confirmPass.type ='password' 
+        }
+    }
+    function captch(){
+        captchaCode.value = code;
+        console.log(code.toString().split(''));
+    }
+    captch()
+    function check(){
+        if(nameInp.value && emailInp.value && numbInp.value && passwordInp.value && confirmPass.value && captchaInp.value){
+            validate()    
+        } else {
+           alert('Please fill all fields😐')
+        }
+    }
+    function validate(){
+       if (nameregex.test(nameInp.value)){
+        namep.innerHTML = `<strong class='text-success'>valid username</strong>`
+       } else{
+        namep.innerHTML = `<strong>Invalid username..Username must contain at least 6 letters</strong>`
+       }
+
+       if (emailregex.test(emailInp.value)){
+        emailp.innerHTML = `<strong class="text-success">valid email</strong>`
+       } else{
+        emailp.innerHTML = `<strong>Invalid email</strong>`
+       }
+
+       if (numbInp.value.charAt(4) === '0') {
+        let rep = numbInp.value.replace(/0/,"")
+        numbregex.test(rep)?numbp.innerHTML=`<strong class="text-success">valid</strong>`:numbp.innerHTML= `<strong>Invalid number..use format +234XXXXXXXXXX</strong>`
+       } else {
+        numbregex.test(numbInp.value)?numbp.innerHTML=`<strong class="text-success">valid</strong>`:numbp.innerHTML= `<strong>Invalid phonenmber..use format +234XXXXXXXXXX</strong>` 
+       }
+
+       if(captchaInp.value == captchaCode.value){ 
+        captchap.innerHTML = '' 
+        captchap.innerHTML = `<strong class="text-success">Valid captcha</strong>`
+       } else {
+        captchaInp.value=''
+        captchap.innerHTML = `Please enter the correct captcha`
+        code = (Math.floor(100000+Math.random()*900000));
+        captch()
+       }
+
+       if (passwordInp.value == confirmPass.value){
+            if (passregex.test(passwordInp.value)){
+                pwordp.innerHTML = `<strong class="text-success">Valid password</strong>`
+                confirmp.innerHTML = `<strong class="text-success">Valid password</strong>`
+            } else{
+                pwordp.innerHTML = `<strong>Password too weak...</strong>`
+                confirmPass.value = ''
+                captchaInp.value=''
+                captchap.innerHTML = ''
+                code = (Math.floor(100000+Math.random()*900000));
+                captch()
+            }
+       } else{
+        confirmp.innerHTML=`<strong>Passwords do not match</strong>`
+        confirmPass.value = ''
+        captchaInp.value=''
+        captchap.innerHTML = ''
+        code = (Math.floor(100000+Math.random()*900000));
+        captch()
+       }
+       
+    }
+    
+    
+
+</script>
+</html>

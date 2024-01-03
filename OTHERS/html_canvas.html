@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="color" name="" id="colors">
+    <canvas id="canvas" width="500" height="200" style="border: 2px solid black; margin-left:50px;"></canvas>
+    <canvas id="canvas2" width="500" height="200" style="border: 2px solid black; margin-left:50px;"></canvas>
+</body>
+<script>
+     let canvas1 = document.getElementById('canvas')
+     class canvas{
+        x=''
+        y='';
+        c = document.getElementById('canvas')
+        constructor(){
+            this.c=this.c.getContext('2d')
+        }
+        setCoordinates(x,y){
+            this.y=y
+            this.x=x
+        }
+        draw(){
+            this.c.beginPath()
+            this.c.strokeStyle=document.getElementById('colors').value
+            this.c.moveTo(this.x,this.y);
+            this.c.lineTo(this.endX,this.endY);
+            this.c.stroke()
+
+        }
+        // setColor(){
+        //     this.color=color
+        // }
+        setEnd(x,y){
+            this.endX= x
+            this.endY= y
+        }
+    }
+    
+   
+    // let canvas = document.getElementById('canvas')
+    // let  context = canvas.getContext('2d')
+    // context.moveTo(0,0)
+    // context.strokeStyle='blue'
+    // context.lineTo(200,500)
+    // context.strokeRect(0,0,200,300)
+    // context.fillRect(10,10,100,50)
+    // context.fillStyle='blue'
+    // context.font='30px dosis'
+    // context.fillText('Hello world',10,100)
+    // imagge.style.visibilty='hidden'
+    // let img = new Image()
+    // img.src='./img/old-phone.jpg'
+    // img.onload=()=>context.drawImage(img,50,50,100,100)
+    // let x,y
+    // let color
+    let canva = []
+    let i = 0
+    canvas1.addEventListener('mousedown',function(e){
+        i++ 
+        canva[i]=new canvas()
+        console.log(canva);
+        canva[i].setCoordinates(e.offsetX,e.offsetY)
+        console.log(canva);
+    })
+    canvas1.addEventListener('mouseup',function(e){
+        console.log(canva[i]);
+        canva[i].setEnd(e.offsetX,e.offsetY)
+         canva[i].draw()
+    })
+    // setColor=()=>color[i].setColor(document.getElementById('colors').value)
+    let x= 0
+    let y= 50
+    let cav = document.getElementById('canvas2');
+    let ec = document.getElementById('canvas2');
+    cav = cav.getContext('2d')
+    ec = ec.getContext('2d')
+    let eX = 300
+    let eY = 100
+    let timer;
+    cav.fillStyle='red'
+    function start(){
+        cav.beginPath()
+        cav.arc(100,100,90,0,2)
+        // cav.fillRect(x,y,30,70)
+        drawE()
+        
+    }
+    start()
+   
+   
+    window.onkeydown= function(e){
+        if (e.keyCode == 39){
+            x++
+        } else if(e.keyCode==40){
+            y++
+        } else if (e.keyCode==38){
+            y--
+        }else if(e.keyCode==37){
+            x--
+        }
+        cav.clearRect(0,0,500,200)
+        start()
+    }
+
+    function drawE(){
+        // ec.clearRect(0,0,500,200)
+        ec.fillStyle='blue'
+        ec.fillRect(eX,eY,10,70)
+        if(timer){
+            clearInterval(timer)
+        }
+        timer = setInterval(() => {
+           eX-- 
+        }, 1000);
+    }
+    drawE()
+   
+</script>
+</html>

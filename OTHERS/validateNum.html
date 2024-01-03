@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <select name="" id="country">
+        <option value="nigeria">(+234) Nigeria</option>
+        <option value="uk">(+44) UK</option>
+        <option value="us">(+1) US</option>
+        <option value="ghana">(+233) Ghana</option>
+    </select>
+    <input type="text" name="" onblur="check()" id="numbInp">
+    <span id="spann"></span>
+</body>
+<script>
+    function check(){
+        console.log(country.value);
+        let rep;
+        let number = numbInp.value
+        if(country.value == "nigeria"){
+            let phone = /^\d{10}$/
+            if (number.charAt(0)== 0) {
+                rep = number.replace(/0/,'')
+                numbInp.value = rep
+                phone.test(rep)?spann.innerHTML =`<strong>Valid<strong/>`:spann.innerHTML =`<strong>InValid<strong/>`;
+            } else {
+                phone.test(number)?spann.innerHTML =`<strong>Valid<strong/>`:spann.innerHTML =`<strong>InValid<strong/>`;
+            }
+
+        } else if(country.value == 'us'){
+            let phone = /^[(]\d{3}[)]-\d{3}-\d{4}$/;
+            phone.test(number)?spann.innerHTML =`<strong>Valid<strong/>`:spann.innerHTML =`<strong>InValid<strong/>`;
+        } else if(country.value == 'ghana'){
+            let phone = /^\d{9}$/
+            if (number.charAt(0)== 0) {
+                rep = number.replace(/0/,'')
+                numbInp.value = rep
+                phone.test(rep)?spann.innerHTML =`<strong>Valid<strong/>`:spann.innerHTML =`<strong>InValid<strong/>`;
+            } else {
+                phone.test(number)?spann.innerHTML =`<strong>Valid<strong/>`:spann.innerHTML =`<strong>InValid<strong/>`;
+            }
+        } else if(country.value == 'uk'){
+            let phone = /^\d{10}$/;
+            phone.test(number)?spann.innerHTML =`<strong>Valid<strong/>`:spann.innerHTML =`<strong>InValid<strong/>`;
+        }
+    }
+</script>
+</html>

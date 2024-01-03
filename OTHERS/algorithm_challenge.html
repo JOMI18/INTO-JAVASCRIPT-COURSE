@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" placeholder="type text" oninput="detectLetter()" />
+  </body>
+  <script>
+    function check(params) {
+      // let numbas = params
+      // let even =[]
+      // let odd = []
+      // for (let i = 0; i < numbas.length; i++) {
+      //     console.log(numbas[i])
+      //     if(numbas[i] % 2 == 0){
+      //         even.push(numbas[i])
+      //     } else if(numbas[i] % 2 !== 0){
+      //         odd.push(numbas[i])
+      //     }
+      // }
+      // if (even.length > odd.length){
+      //     console.log(`${odd}`)
+      // } else if(even.length < odd.length){
+      //     console.log(`${even}`)
+      // } else{
+      //     console.log('even');
+      // }
+      let odd = params.filter((el) => el % 2 != 0);
+      let even = params.filter((el) => el % 2 == 0);
+      return odd.length < even.length ? odd.join("") : even.join("");
+    }
+
+    console.log(check([2, 8, 8, 9, 5]));
+
+    function detectLetter(param) {
+      let letters = "";
+      for (let i = 0; i < param.length; i++) {
+        if (letters.includes(param[i]) && param[i] !== " ") {
+          console.log(`${param[i]} ===`, true);
+        } else {
+          letters += `${param[i]}`;
+        }
+      }
+      console.log(letters);
+    }
+    detectLetter("happy mum tuesday ");
+
+    function check2(param) {
+      let found = false;
+      letters = param;
+      let str = letters.replace(/ /g, "");
+      let ar = str.split("");
+      ar.forEach((element) => {
+        if (ar.indexOf(element) !== ar.lastIndexOf(element)) {
+          found = true;
+        }
+      });
+      console.log(found);
+    }
+    check2("m n n o np");
+  </script>
+</html>
