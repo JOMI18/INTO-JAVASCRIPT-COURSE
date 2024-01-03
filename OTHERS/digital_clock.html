@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clock</title>
+    <link rel="stylesheet" href="./Bootstrap/bootstrap.css" />
+    <style>
+      div {
+        position: absolute;
+        left: 30%;
+        top: 35%;
+        border-radius: 10px;
+        width: 600px;
+        height: 250px;
+        border: 1px solid #5c5c5c;
+        box-shadow: 15px 20px 8px #302c2c;
+      }
+      h1 {
+        font-size: 9em;
+      }
+      sub {
+        font-size: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="d-flex bg-dark px-4 py-4 align-items-center justify-content-around border-rounded">
+      <h1 class="text-white" id="hourS"></h1>
+      <h1 class="text-white">:</h1>
+      <h1 class="text-white" id="minuteS"></h1>
+      <sub id="secondS" class="text-white"></sub>
+    </div>
+  </body>
+  <script>
+    setInterval(function () {
+      let date = new Date();
+      date.getSeconds().toString().length == 1
+        ? (secondS.innerHTML = '0' + date.getSeconds())
+        : (secondS.innerHTML = date.getSeconds());
+      if (date.getMinutes().toString().length == 1) {
+        minuteS.innerHTML = `0${date.getMinutes()}`;
+      } else {
+        minuteS.innerHTML = date.getMinutes();
+      }
+      date.getHours().toString().length == 1
+        ? (hourS.innerHTML = '0' + date.getHours())
+        : (hourS.innerHTML = date.getHours());
+    }, 1000);
+
+    // if (date.getSeconds() < 10){
+    //     secondS.innerHTML = `0 ${date.getSeconds()}`
+    // }
+
+    // let minuteTime = setInterval(function () {
+    //    minuteCount++
+    //     minuteUpdate = minuteCount
+    //     minuteS.innerHTML = `${ minuteUpdate}`
+    // }, 60000);
+    // let hourTime = setInterval(function () {
+    //    hourCount++
+    //    hourUpdate = hourCount
+    //     hourS.innerHTML = `${ hourUpdate}`
+    // }, 600000);
+  </script>
+</html>

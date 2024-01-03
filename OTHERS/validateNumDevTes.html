@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <select name="" id="country" onblur="check()">
+        <option value="nigeria">(+234) Nigeria</option>
+        <option value="uk">(+44) UK</option>
+        <option value="us">(+1) US</option>
+        <option value="ghana">(+233) Ghana</option>
+    </select>
+    //username--minimum of 6 charters..can only contain letters..no special characters
+    //email address...a valid one
+    //phone number....formatted no for nigeria
+    //password filed..a very strong password
+    // confirm password to confirm if the password mateched the other
+    //recaptha
+   
+</body>
+<script>
+    let data = {nigeria:{code:'+234',regex:'/^[\+][2][3][4][0-9]{10}$/'},
+                ghana:{code:'+233',regex:'/^[\+][2][3][3][0-9]{10}$/'}};
+    let numb = '+2348156789992'
+    function check(){
+        let regex = eval(data[country.value].regex)
+        if(!eval(regex.test(numb))) {
+            console.log('invalid number for '+country.value);
+        } else {
+            console.log('valid Number for'+country.value);
+        }
+    }
+</script>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./Bootstrap/bootstrap.css">
+</head>
+<body>
+    <div class="container btns">
+        <div style="width:80%;height:400px">
+            <div class="">
+                <div class="pl-2 row  pr-2 bg-dark">
+                    <div class="col-2"><button class="btn btn-sm btn-light form-control">B</button></div>
+                    <div class="col-2"><button class="btn btn-sm btn-light form-control">I</button></div>
+                    <div class="col-2"><button class="btn btn-sm btn-light form-control">Aa</button></div>
+                    <div class="col-2"><button class="btn btn-sm btn-light form-control">U</button></div>
+                    <div class="col-2"><select name="" id="" class="form-control">
+                        <option value="Arial black">Arial black</option>
+                        <option value="Arial black">Arial black</option>
+                    </select></div>
+                    <div class="col-2"><input class="form-control" type="color" onchange="changeCol()" name="" id="color"></div>
+                </div>
+                <div contenteditable="" style="border:1px solid black; height:400px; flex-direction:row!important;" class="shadow card" id="editor"></div>
+            </div>
+        </div>
+        
+    </div>
+</body>
+<script>
+    let history = []
+    let prevTexts = ''
+    let getPrevTexts =''
+    let btns = document.querySelectorAll('.btn-sm')
+    btns.forEach(function(btn){
+        btn.addEventListener('click',btnClicked);
+    })
+    document.onkeydown = (function(e){
+        if (e.ctrlKey && e.keyCode == 83){
+            let found = history.find(function (element) {
+                return element === editor.innerHTML;
+            });
+            if (found){
+                console.log('found');
+                return false
+            }else{
+                console.log(`jjj`);
+                if (history == ''){
+                    history.push(editor.innerHTML)
+                    console.log(history);
+                    e.preventDefault()
+                } else{
+                    history.pop('')
+                    history.push(editor.innerHTML)
+                    e.preventDefault()
+                }
+            }
+            console.log(`yyy`);
+            prevTexts = localStorage.setItem('previousText',JSON.stringify(history))  
+        }
+        if (e.ctrlKey && e.keyCode == 90){
+           let splHistory = history.toString().split(' ')
+           if(splHistory.length == 1){
+               editor.innerHTML = ''
+               history.pop()
+               history=''
+               history=[]
+           } else {
+                let hh = splHistory.pop();
+                let onamez = splHistory.reduce(function (a, b) {
+                    return a +" "+ b;
+                });
+                history = ''
+                history =[]
+                history.push(onamez)
+                editor.innerHTML = history[0]
+                e.preventDefault()
+           }    
+            prevTexts = localStorage.setItem('previousText',JSON.stringify(history))
+            console.log(`history`,history);
+        }
+       
+    });
+    getPrevTexts = localStorage.getItem('previousText')
+    function check(){
+        if(getPrevTexts){
+            console.log(history);
+            history = JSON.parse(getPrevTexts);     
+            editor.innerHTML = history.join('')
+            console.log(`history`,history);
+        }
+    }
+    check()
+    function changeCol(){
+        editor.style.color =color.value 
+    }
+    function btnClicked(event){
+        let selected;
+        let target = event.target.innerText
+        if (target == "Aa"){
+            editor.style.textTransform=='lowercase'?editor.style.textTransform = 'uppercase':editor.style.textTransform='lowercase'
+        }
+        if (target == "B"){
+            selected = document.getSelection().getRangeAt(0)
+            if (selected){
+                let content = selected.extractContents()
+                let spann = document.createElement('span');
+                spann.setAttribute('id','spanId')
+                if (document.getElementById(spanId).innerHTML){
+                   console.log(`empty`);
+                } else{ alert('')}
+                spann.style.fontWeight !=='bold'?spann.style.fontWeight='bold':alert('')
+                spann.appendChild(content)
+                selected.insertNode(spann)
+               
+                // console.log(spann.style.fontWeight);
+                return;
+            } else {
+                console.log('nothing selected');
+            }
+            // editor.style.fontWeight=='Bold'?editor.style.fontWeight='normal': editor.style.fontWeight ='Bold'
+        }
+        if (target == "I"){
+            editor.style.fontStyle=='italic'?editor.style.fontStyle='normal': editor.style.fontStyle ='italic'
+        }
+        if (target == "U"){
+            editor.style.textDecoration=='none'?editor.style.textDecoration ='underline': editor.style.textDecoration='none'
+        }
+    }
+</script>
+</html>

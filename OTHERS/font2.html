@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="css/font2.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+    </head>
+    <body>
+         <i class="fa fa-camera"></i> 
+        <i class="fa fa-caret-down"></i>
+        <i class="fa fa-thumbs-up"></i>
+        <i class="fa fa-less-than"></i>
+        <i class="fa fa-greater-than"></i>
+        <i class="fa fa-angles-right"></i>
+        <i class="fa-solid fa-angles-left"></i>
+        <i class="fa fa-home"></i>
+
+    </body>
+    <script>
+        let arr =[]
+        let a=0
+        let b=2
+        let total=''
+        function swapDigit(param){
+            console.log(param);
+            console.log(param);
+            if (param.length % 2 == 0) {
+                startingIndex = 0
+            }else{
+                startingIndex = 1
+            }
+            for (let i = 0; i < param.length/2; i++) {
+                let cut='';
+                param.length % 2 == 0?cut = param.slice(a,b):cut = param.slice(a+1,b+1);
+              arr.push(cut)
+              a+=2
+              b+=2  
+            }
+            console.log(arr);
+            for (let i = 0; i < arr.length; i++) {
+                let rev = arr[i].charAt(1)+""+arr[i].charAt(0)
+                total+=rev
+            }
+            if (param.length % 2 == 0) {
+                console.log(total,'total');
+            }else{
+                console.log(param.charAt(0)+""+total,'total');
+            }
+        }
+        swapDigit('512364783')
+    </script>
+</html>

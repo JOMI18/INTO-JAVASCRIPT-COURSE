@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="./js/myjs.js" defer></script>
+    <link rel="stylesheet" href="./Bootstrap/bootstrap.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
+    <title>javascript</title>
+    <style>
+      ul {
+        list-style-type: none;
+      }
+      .divv {
+        background-color: blue;
+        width: 50px !important;
+      }
+      .divv p {
+        background-color: red;
+        width: 100%;
+      }
+      #inpp{
+          outline: none;
+          width: fit-content;
+      }
+    </style>
+  </head>
+  <!-- <body>
+    <p id="demo" style=" font-size: 35px"></p>
+    <p id="demo2" style=" font-size: 35px"></p>
+    <p oncopy="bgcolor();">copy that</p>
+    <p id="demo3" style="background-color: chartreuse; font-size: 35px; width:fit-content;"></p>
+    <input type="text"  name="" id="inp">
+    <input type="text"  name="" id="paste">
+    <button class="btn btn-danger" onclick="change()">Cut</button>
+    <button class="btn btn-danger"  onclick="btn(1)">1</button>
+    <button class="btn btn-danger" onclick="btn(2)">2</button>
+    <button class="btn btn-danger" onclick="btn(3)">3</button>
+    <button class="btn btn-danger" onclick="btn()">4</button>
+    <h1 id="h1"></h1>
+    <div>
+        <input type="number" name="" id="input1">
+        <input type="text" name="" id="input3">
+        <input type="number" name="" id="input2">
+        <button class="btn btn-info" onclick="sum()">CALCULATE</button>
+        <h1 id="h_one"></h1>
+    </div>
+    <input type="text" oninput="textChange()" id="textInput">
+    <br>
+    <br>
+    <br>
+    <input type="text" name="" id="arrayInp">
+    <button class="btn btn-secondary" onclick="push()">PUSH</button>
+    <h1 id="arrayH1"></h1>
+    <div class="mt-5">
+        <input type="number" id="startNumber">
+        <input type="number" id="endNumber">
+        <button class="btn btn-warning" onclick="showTable()">Show table</button>
+    </div>
+    <div class="mt-5">
+        <ul id="displayD"></ul>
+    </div>
+    <div id="multiplicationResultB">
+    <div id="multiplicationResult" class="row  py-4"></div> -->
+    <!-- <input type="text" id="nameInp">
+    <button class="btn btn-primary" onclick="pushNames()">Push name</button>
+    <ul id="namesH1"></ul>
+    <input type="color" name="" id="txtCol">
+    <input type="color" name="" id="backgroundCol">
+    <button class="btn btn-danger" onclick="changeColor()">change color</button>
+    <p id="ptag">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore, natus. Ratione, quas possimus! Optio animi nobis a rem, quos pariatur deserunt, molestias cum, at explicabo blanditiis molestiae et commodi vel.</p> --> 
+    
+    <!-- toggle TO SOW OR IDE PASSWORD -->
+    <!-- <div d-flex>
+      <input type="password" id="passwordToggle"/>
+      <i class="fa fa-eye"  onclick="toggle()"></i> 
+    </div>
+    /////////////////////////////////////////////////////-->
+        <input type="text" name="" class="mt-5" id="nameD" placeholder="Name"/>
+        <input type="email" name="" id="emails" placeholder="Email"/>
+        <input type="password" placeholder="password" class="" id="passWrd"><i class="fa fa-eye" id="passwordToggle"></i>
+    <button class="btn btn-dark" id="addBtn">Add</button>
+    <table class="table w-75 table-bordered table-hover table-striped">
+      <thead>
+        <tr>
+          <th>S/N</th>
+          <th>Names</th>
+          <th>Email</th>
+          <th>password</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="tableBody"></tbody>
+    </table>
+    <input type="text" id="texts">
+    <button id="btns">find</button>
+
+    <input type="email" id="emailInpp" onblur="validateMail()" placeholder="abcd@mail.com">
+   <span id="spann"></span>
+   <input type="text" id="numInp" onblur="validatePhoneNumber()">
+   <h1 id="loader">GEtting posts.........</h1>
+   <!-- <div class="row" id="postS"> -->
+
+
+
+
+
+
+
+     <div class="w-50">
+       <input type="text" class="form-control input-lg" readonly id="screen">
+       <table style="width:100%;" id="tb1">
+        <tr>
+          <td><button class="btn btn-light">1</button></td>
+          <td><button class="btn btn-light">2</button></td>
+          <td><button class="btn btn-light">3</button></td>
+          <td><button class="btn btn-light">4</button></td>
+          <td><button class="btn btn-light">5</button></td>
+          <td><button class="btn btn-light">+</button></td>
+        </tr>
+        <tr>
+          <td><button class="btn btn-light">6</button></td>
+          <td><button class="btn btn-light">7</button></td>
+          <td><button class="btn btn-light">8</button></td>
+          <td><button class="btn btn-light">9</button></td>
+          <td><button class="btn btn-light">0</button></td>
+          <td><button class="btn btn-light">-</button></td>
+        </tr>
+        <tr>
+          <td colspan="6"><button class="btn btn-dark">=</button></td>
+        </tr>
+       </table>
+     </div>
+     <div class="w-50">
+       <input type="text" class="form-control input-lg" readonly id="screen1">
+       <table style="width:100%;" id="tb2">
+        <tr>
+          <td><button class="btn btn-light">1</button></td>
+          <td><button class="btn btn-light">2</button></td>
+          <td><button class="btn btn-light">3</button></td>
+          <td><button class="btn btn-light">4</button></td>
+          <td><button class="btn btn-light">5</button></td>
+          <td><button class="btn btn-light">+</button></td>
+        </tr>
+        <tr>
+          <td><button class="btn btn-light">6</button></td>
+          <td><button class="btn btn-light">7</button></td>
+          <td><button class="btn btn-light">8</button></td>
+          <td><button class="btn btn-light">9</button></td>
+          <td><button class="btn btn-light">0</button></td>
+          <td><button class="btn btn-light">-</button></td>
+        </tr>
+        <tr>
+          <td colspan="6"><button class="btn btn-dark">=</button></td>
+        </tr>
+       </table>
+     </div>
+
+   </div>
+  </body>
+</html>
